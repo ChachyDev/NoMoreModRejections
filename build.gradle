@@ -1,0 +1,39 @@
+plugins {
+    id "java"
+    id "net.minecraftforge.gradle.forge" version "6f53277"
+}
+
+version = "0.1.0"
+group = "club.chachy"
+archivesBaseName = "NoMoreModRejections"
+
+sourceCompatibility = targetCompatibility = 1.8
+
+minecraft {
+    version = "1.8.9-11.15.1.2318-1.8.9"
+    runDir = "run"
+    mappings = "stable_22"
+    makeObfSourceJar = false
+    clientJvmArgs += "-Dfml.coreMods.load=club.chachy.nomoremodrejections.asm.plugin.ASMTweaker"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include "mcmod.info"
+
+        expand "version": project.version, "mcversion": project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "mcmod.info"
+    }
+}
+
+jar {
+    manifest {
+        attributes("FMLCorePlugin": "club.chachy.nomoremodrejections.asm.plugin.NoMoreModRejectionsFMLLoadingPlugin", "ForceLoadAsMod": true, FMLCorePluginContainsFMLMod: true, "ModSide": "CLIENT")
+    }
+}
