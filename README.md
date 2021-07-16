@@ -1,8 +1,5 @@
-# For Developers
-To properly run the client with ASM, include
+# NoMoreModRejections
+A simple mod to bypass Forge server 1.8.9 mod checks.
 
--Dfml.coreMods.load=path.to.class.with.IFMLLoadingPlugin
-
-in your VM arguments.
-
-In this repo, it would be `ASMTweaker`
+Note:
+This mod **MUST** be used by the person hosting the world **NOT** the person joining.

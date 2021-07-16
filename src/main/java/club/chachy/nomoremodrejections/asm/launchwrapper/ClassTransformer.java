@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.util.Collection;
 
 public class ClassTransformer implements IClassTransformer {
-
     // create a logger to distinguish our errors from a normal error
     private static final Logger LOGGER = LogManager.getLogger("NoMoreModRejections");
 
